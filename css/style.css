@@ -1,0 +1,407 @@
+/* ==========================================
+   1. Універсальний селектор та базові стилі
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111827;
+    background-color: #f8fafc;
+    line-height: 1.5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   2. Шапка сайту (Header & Nav)
+   ========================================== */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+.slogan {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: #15803d;
+}
+
+/* ==========================================
+   3. Hero-секція з фоновим зображенням
+   ========================================== */
+.hero-section {
+    /* Якщо немає ще картинки у папці images, тут буде градієнт-заглушка. 
+       Коли додасте header-bg.jpg у паку images, воно стане як на зразку */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('../images/lviv.jpg') center/cover no-repeat;
+    color: #ffffff;
+    padding: 70px 20px 90px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    max-width: 500px;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   4. Кнопки (Button)
+   ========================================== */
+.btn {
+    display: inline-block;
+    background-color: #15803d;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #166534;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   5. Поточний моніторинг (Картки рядком)
+   ========================================== */
+.current-monitoring {
+    margin-bottom: 40px;
+}
+
+.current-monitoring h2, 
+.services-section h2, 
+.measurements-section h2, 
+.order-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.monitoring-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.monitor-item {
+    font-size: 14px;
+}
+
+.monitor-item small {
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* ==========================================
+   6. Напрями роботи (Display: inline-block)
+   ========================================== */
+.services-section {
+    margin-bottom: 40px;
+}
+
+.cards-grid {
+    font-size: 0; /* Прибирати зайві пробіли для inline-block */
+}
+
+.service-card {
+    display: inline-block;
+    width: 23.5%;
+    margin-right: 2%;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    vertical-align: top;
+    font-size: 16px; /* Повертаємо нормальний розмір шрифту */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
+}
+
+.service-card:last-child {
+    margin-right: 0;
+}
+
+.service-card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.service-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   7. Попередження (Position relative/absolute)
+   ========================================== */
+.warning-aside {
+    position: relative;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #dc2626;
+    padding: 15px 20px 15px 50px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+}
+
+.warning-aside::before {
+    content: "⚠️";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 16px;
+}
+
+.warning-aside h3 {
+    color: #991b1b;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.warning-aside p {
+    color: #7f1d1d;
+    font-size: 13px;
+}
+
+/* ==========================================
+   8. Таблиця вимірювань
+   ========================================== */
+.measurements-section {
+    margin-bottom: 40px;
+}
+
+.measurements-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.measurements-table th, 
+.measurements-table td {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.measurements-table th {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.red, .warning-badge {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.green {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.red-text {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* ==========================================
+   9. Форма замовлення
+   ========================================== */
+.order-section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.order-section > p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.order-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    min-width: 100%;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #334155;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #15803d;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.submit-btn {
+    margin-top: 10px;
+}
+
+/* ==========================================
+   10. Підвал сайту (Footer)
+   ========================================== */
+.site-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 40px 0;
+    font-size: 13px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info strong {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+.footer-nav a:hover {
+    color: #ffffff;
+}
+
+/* ==========================================
+   11. Навмисний конфлікт стилів для Specificity
+   ========================================== */
+.conflict-title {
+    color: blue;
+}
+
+#special-heading.conflict-title {
+    color: green;
+}
